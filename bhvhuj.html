@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>バトミントン公式スコアシート</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      text-align: center;
+    }
+    h1 {
+      font-size: 36px;
+    }
+    .scoreboard {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+    }
+    .team {
+      margin: 0 40px;
+    }
+    .score {
+      font-size: 48px;
+      font-weight: bold;
+    }
+    .game-info {
+      margin-top: 20px;
+      font-size: 20px;
+    }
+    .input-area {
+      margin-top: 30px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 18px;
+      margin: 10px;
+      cursor: pointer;
+    }
+    .status {
+      margin-top: 30px;
+      font-size: 20px;
+      color: green;
+    }
+    table {
+      margin-top: 30px;
+      width: 100%;
+      border-collapse: collapse;
+      text-align: center;
+    }
+    th, td {
+      padding: 10px;
+      border: 1px solid #ddd;
+    }
+    th {
+      background-color: #f4f4f4;
+    }
+    .winner {
+      color: red;
+      font-size: 24px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>バトミントン公式スコアシート</h1>
+
+  <div class="scoreboard">
+    <div class="team">
+      <h2>チーム A</h2>
+      <div class="score" id="scoreA">0</div>
+    </div>
+    <div class="team">
+      <h2>チーム B</h2>
+      <div class="score" id="scoreB">0</div>
+    </div>
+  </div>
+
+  <div class="game-info" id="gameInfo">
+    ゲーム: 1, チーム A の得点: 0, チーム B の得点: 0
+  </div>
+
+  <div class="input-area">
+    <button onclick="addPoint('A')">チーム A 得点</button>
+    <button onclick="addPoint('B')">チーム B 得点</button>
+  </div>
+
+  <div class="status" id="status"></div>
+
+  <!-- スコアシート -->
+  <h3>スコアシート</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>ゲーム</th>
+        <th>チーム A</th>
+        <th>チーム B</th>
+        <th>勝者</th>
+      </tr>
+    </thead>
+    <tbody id="scoreSheet">
+      <tr>
+        <td>ゲーム 1</td>
+        <td id="game1A">0</td>
+        <td id="game1B">0</td>
+        <td id="winner1">-</td>
+      </tr>
+      <tr>
+        <td>ゲーム 2</td>
+        <td id="game2A">0</td>
+        <td id="game2B">0</td>
+        <td id="winner2">-</td>
+      </tr>
+      <tr>
+        <td>ゲーム 3</td>
+        <td id="game3A">0</td>
+        <td id="game3B">0</td>
+        <td id="winner3">-</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <script>
+    let scoreA = 0;
+    let scoreB = 0;
+    let gameA = 0; // ゲームAの勝利数
+    let gameB = 0; // ゲームBの勝利数
+    let currentGame = 1; // 現在のゲーム番号
+    const maxPoints = 21; // 1ゲームあたりの最大得点
+    const maxGames = 2;  // 3ゲーム制なので、2ゲームで勝利
+    let isGameOver = false;
+
+    function addPoint(team) {
+      if (isGameOver) {
+        alert("ゲームは終了しました。リセットしてください。");
+        return;
+      }
+
+      // 得点を追加
+      if (team === 'A') {
+        scoreA++;
+      } else if (team === 'B') {
+        scoreB++;
+      }
+
+      // ゲームが21点に達した場合、そのゲームを勝利
+      if (scoreA >= maxPoints && scoreA - scoreB >= 2) {
+        gameA++;
+        updateGameScore(currentGame, 'A');
+        setWinner(currentGame, 'A');
+        resetScores();
+      } else if (scoreB >= maxPoints && scoreB - scoreA >= 2) {
+        gameB++;
+        updateGameScore(currentGame, 'B');
+        setWinner(currentGame, 'B');
+        resetScores();
+      } else {
+        updateScores();
+      }
+
+      // 2ゲームを先取したチームが勝者
+      if (gameA >= maxGames) {
+        updateStatus("チーム A の総合勝利！");
+        isGameOver = true;
+      } else if (gameB >= maxGames) {
+        updateStatus("チーム B の総合勝利！");
+        isGameOver = true;
+      }
+    }
+
+    // スコアシートのゲーム得点を更新
+    function updateGameScore(game, team) {
+      document.getElementById(`game${game}A`).textContent = scoreA;
+      document.getElementById(`game${game}B`).textContent = scoreB;
+    }
+
+    // 勝者をスコアシートに設定
+    function setWinner(game, team) {
+      const winnerCell = document.getElementById(`winner${game}`);
+      if (team === 'A') {
+        winnerCell.textContent = 'チーム A';
+        winnerCell.classList.add('winner');
+      } else {
+        winnerCell.textContent = 'チーム B';
+        winnerCell.classList.add('winner');
+      }
+    }
+
+    // スコアの表示を更新
+    function updateScores() {
+      document.getElementById("scoreA").textContent = scoreA;
+      document.getElementById("scoreB").textContent = scoreB;
+      document.getElementById("gameInfo").textContent = `ゲーム: ${currentGame}, チーム A の得点: ${scoreA}, チーム B の得点: ${scoreB}`;
+    }
+
+    // ゲームをリセット
+    function resetScores() {
+      scoreA = 0;
+      scoreB = 0;
+      currentGame++;
+      updateScores();
+    }
+
+    // ステータスメッセージを更新
+    function updateStatus(message) {
+      document.getElementById("status").textContent = message;
+    }
+  </script>
+
+</body>
+</html>

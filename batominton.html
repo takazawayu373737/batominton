@@ -1,0 +1,262 @@
+<body>
+  <!DOCTYPE html>
+  <html lang="ja">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>バドミントンの苦手なところの練習メニュー</title>
+      <script>
+          // Function to show or hide content based on checkbox selection
+          function toggleContent(checkboxId, contentId) {
+              var checkbox = document.getElementById(checkboxId);
+              var content = document.getElementById(contentId);
+              if (checkbox.checked) {
+                  content.style.display = 'block'; // Show content if checkbox is checked
+              } else {
+                  content.style.display = 'none'; // Hide content if checkbox is unchecked
+              }
+          }
+      </script>
+  </head>
+  <body>
+      <h1>バドミントンの苦手なところの練習メニュー</h1>
+      
+      <h2>シングルス</h2>
+      <form>
+          <label for="checkbox1">スマッシュが苦手</label>
+          <input type="checkbox" id="checkbox1" name="checkbox1" onclick="toggleContent('checkbox1', 'smashContent')">
+          <br>
+  
+          <label for="checkbox2">ロブが奥まで飛んでいない</label>
+          <input type="checkbox" id="checkbox2" name="checkbox2" onclick="toggleContent('checkbox2', 'dropContent')">
+          <br>
+  
+          <label for="checkbox3">ヘアピンが浅い</label>
+          <input type="checkbox" id="checkbox3" name="checkbox3" onclick="toggleContent('checkbox3', 'hairpinContent')">
+          <br>
+  
+          <label for="checkbox4">クリアが飛ばない</label>
+          <input type="checkbox" id="checkbox4" name="checkbox4" onclick="toggleContent('checkbox4', 'clearContent')">
+          <br>
+  
+          <label for="checkbox5">フットワークが遅い</label>
+          <input type="checkbox" id="checkbox5" name="checkbox5" onclick="toggleContent('checkbox5', 'footworkContent')">
+          <br>
+  
+          <label for="checkbox6">サーブが入らない</label>
+          <input type="checkbox" id="checkbox6" name="checkbox6" onclick="toggleContent('checkbox6', 'serveContent')">
+          <br>
+  
+          <input type="submit" value="リセット">
+      </form>
+  
+      <div id="smashContent" style="display:none;">
+          <p>スマッシュが苦手な場合の練習メニュー</p>
+          ■スマッシュを打つための練習方法 ・素振り ・筋トレ ・ノック練習 ・慣れてきたら2対1で打ち合いをするのもおすすめ ■コツを掴んで速度のあるスマッシュを打とう ■スマッシュではどこを狙えば良い？ バドミントンのスマッシュは、打球が速く威力のあるショットです。 高い位置から相手コートに突き刺すような角度で打つので、点を取り試合を優位に運ぶためには欠かすことができません。
+          参考になるサイト
+          https://badminton.kokacare.com/smash-movie/
+      </div>
+  
+      <div id="dropContent" style="display:none;">
+          <p>ロブが奥まで飛んでいない場合の練習メニュー</p>
+          バドミントンでロブを飛ばす練習方法はノックが一番かもしれませんが、初心者～中級者のどのレベルでもできる練習方法であれば、やはり天井打ちがいいと思います。
+
+まずは天井打ちを極めるべし！
+これは、ロブを打つ時の力のいれるタイミングとシャトルの滞空時間の確認ができます。
+天井（真上）にハイロブを打つ時、腕だけの力ではあまり大きく飛びません。
+
+飛ばす時には、腕、手首、下から上への身体の重心移動など身体全体で飛ばさないと（天井の高さにもよりますが）天井に届かないので、「ロブが飛ばない」て困っている人には最適な練習です！
+
+この練習が最適な理由は、ロブを飛ばす力がつけば、天井に近い高さ、または天井にシャトルが届きますし、シャトルが飛んでいるかいないかを自分である程度判断ができます。
+
+
+ロブが飛んでいるのかを確認したい人向けのノックの場合
+ノック者に、①、②に交互に打ってもらい、それを真ん中からステップを踏んで相手コート奥にロブを飛ばす練習です。
+
+ロブが飛ばないのは実はフットワークに原因が？
+試合でロブが飛ばないと感じている方は多くは打ち方に原因があると感じている方が多いのではないかと思います。
+          https://badminton-tuyokunaru.com/tekunikku/robu-tobanai-renshu.html#toc3
+          <!-- Add content for Drop practice here -->
+      </div>
+  
+      <div id="hairpinContent" style="display:none;">
+          <p>ヘアピンが浅い場合の練習メニュー</p>
+          
+          <!-- Add content for Hairpin practice here -->
+      </div>
+  
+      <div id="clearContent" style="display:none;">
+          <p>クリアが飛ばない場合の練習メニュー</p>
+          <!-- Add content for Clear practice here -->
+      </div>
+  
+      <div id="footworkContent" style="display:none;">
+          <p>フットワークが遅い場合の練習メニュー</p>
+          <!-- Add content for Footwork practice here -->
+      </div>
+  
+      <div id="serveContent" style="display:none;">
+          <p>サーブが入らない場合の練習メニュー</p>
+          <!-- Add content for Serve practice here -->
+      </div>
+  
+      <h2>ダブルス</h2>
+      <form>
+          <label for="checkbox7">ローテーションの紹介</label>
+          <input type="checkbox" id="checkbox7" name="checkbox7" onclick="toggleContent('checkbox7', 'rotationIntroContent')">
+          <br>
+  
+          <label for="checkbox8">ローテーションの練習方法</label>
+          <input type="checkbox" id="checkbox8" name="checkbox8" onclick="toggleContent('checkbox8', 'rotationPracticeContent')">
+          <br>
+  
+          <label for="checkbox9">ダブルスのコツ</label>
+          <input type="checkbox" id="checkbox9" name="checkbox9" onclick="toggleContent('checkbox9', 'doublesTipsContent')">
+          <br>
+  
+          <input type="submit" value="リセット">
+      </form>
+  
+      <div id="rotationIntroContent" style="display:none;">
+          <p>ローテーションの紹介の練習メニュー</p>
+          <!-- Add content for Rotation introduction here -->
+      </div>
+  
+      <div id="rotationPracticeContent" style="display:none;">
+          <p>ローテーションの練習方法</p>
+          <!-- Add content for Rotation practice here -->
+      </div>
+  
+      <div id="doublesTipsContent" style="display:none;">
+          <p>ダブルスのコツの練習メニュー</p>
+          <!-- Add content for Doubles tips here -->
+      </div>
+  </body>
+  </html>
+  
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ペアの反省点を書き込め！</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f9;
+    }
+    header {
+      background-color: #333;
+      color: white;
+      padding: 10px 20px;
+      text-align: center;
+    }
+    .container {
+      width: 80%;
+      margin: 0 auto;
+    }
+    .post-form {
+      background-color: white;
+      padding: 20px;
+      margin-top: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    .post-form input, .post-form textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    .post-form button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .post-form button:hover {
+      background-color: #45a049;
+    }
+    .posts {
+      margin-top: 30px;
+    }
+    .post {
+      background-color: white;
+      padding: 15px;
+      margin-bottom: 15px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    .post h3 {
+      margin-top: 0;
+    }
+    .post p {
+      color: #555;
+    }
+  </style>
+  <header>
+    <h1>ペアでの反省点をかきこめ！</h1>
+  </header>
+
+  <div class="container">
+    <!-- 投稿フォーム -->
+    <div class="post-form">
+      <h2>新しい投稿</h2>
+      <form id="postForm">
+        <label for="username">名前:</label>
+        <input type="text" id="username" name="username" placeholder="名前を入力" required>
+        <label for="message">メッセージ:</label>
+        <textarea id="message" name="message" placeholder="メッセージを入力" rows="4" required></textarea>
+        <button type="submit">投稿する</button>
+      </form>
+    </div>
+
+    <!-- 投稿一覧 -->
+    <div class="posts" id="posts">
+      <!-- 投稿がここに追加されます -->
+    </div>
+  </div>
+
+  <script>
+    // フォームの送信処理
+    document.getElementById('postForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      const username = document.getElementById('username').value;
+      const message = document.getElementById('message').value;
+
+      if (username && message) {
+        const postContainer = document.getElementById('posts');
+
+        // 新しい投稿を作成
+        const postElement = document.createElement('div');
+        postElement.classList.add('post');
+
+        const postHeader = document.createElement('h3');
+        postHeader.textContent = username;
+
+        const postMessage = document.createElement('p');
+        postMessage.textContent = message;
+
+        postElement.appendChild(postHeader);
+        postElement.appendChild(postMessage);
+
+        // 投稿を一覧に追加
+        postContainer.prepend(postElement);
+
+        // フォームをリセット
+        document.getElementById('username').value = '';
+        document.getElementById('message').value = '';
+      }
+    });
+  </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
